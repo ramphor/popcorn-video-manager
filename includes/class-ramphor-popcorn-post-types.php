@@ -25,11 +25,13 @@ class Ramphor_Popcorn_Post_Types {
 		}
 
 		$video_post_type_args = array(
-			'labels'       => $video_labels,
-			'public'       => true,
-			'hierarchical' => true,
-			'show_ui'      => true,
-			'supports'     => array( 'title', 'editor', 'comments', 'author', 'excerpt', 'thumbnail' ),
+			'labels'          => $video_labels,
+			'public'          => true,
+			'hierarchical'    => true,
+			'show_ui'         => true,
+			'capability_type' => 'post',
+			'show_in_rest'    => true,
+			'supports'        => array( 'title', 'editor', 'comments', 'author', 'excerpt', 'thumbnail' ),
 		);
 
 		register_post_type(
@@ -61,7 +63,7 @@ class Ramphor_Popcorn_Post_Types {
 		$video_tag_args = array(
 			'labels'       => $tag_labels,
 			'public'       => true,
-			'hierarchical' => true,
+			'hierarchical' => false,
 		);
 		register_taxonomy( 'video_tag', 'video', apply_filters( 'ramphor_popcorn_video_tag_args', $video_tag_args ) );
 	}
