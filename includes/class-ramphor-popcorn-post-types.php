@@ -34,7 +34,11 @@ class Ramphor_Popcorn_Post_Types {
 
 		register_post_type(
 			'video',
-			apply_filters( 'ramphor_video_post_type_args', $video_post_type_args )
+			apply_filters(
+				'ramphor_video_post_type_args',
+				$video_post_type_args,
+				$platform_type
+			)
 		);
 	}
 
