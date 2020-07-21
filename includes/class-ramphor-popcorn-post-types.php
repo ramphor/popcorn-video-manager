@@ -10,7 +10,10 @@ class Ramphor_Popcorn_Post_Types {
 		$video_labels  = array();
 		if ( $platform_type === 'movie' ) {
 			$video_labels = $video_labels + array(
-				'name' => __( 'Movies', 'ramphor_popcorn' ),
+				'name'          => __( 'Movies', 'ramphor_popcorn' ),
+				'singular_name' => __( 'Movie', 'ramphor_popcorn' ),
+				'all_items'     => __( 'All Moviess', 'ramphor_popcorn' ),
+				'add_new'       => __( 'Add new', 'ramphor_popcorn' ),
 			);
 		} else {
 			$video_labels = $video_labels + array(
