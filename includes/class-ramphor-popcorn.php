@@ -32,5 +32,18 @@ class Ramphor_Popcorn {
 			return;
 		}
 		require_once dirname( __FILE__ ) . '/class-ramphor-popcorn-post-types.php';
+
+		if ( $this->is_request( 'admin' ) ) {
+			require_once dirname( __FILE__ ) . '/class-ramphor-popcorn-admin.php';
+		}
+	}
+
+	protected function is_request( $request ) {
+		switch ( $request ) {
+			case 'admin':
+				return is_admin();
+			case 'cron':
+				return defined( 'DOING_AJAX' ) && DOING_AJAX;
+		}
 	}
 }
