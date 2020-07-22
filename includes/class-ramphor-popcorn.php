@@ -1,6 +1,8 @@
 <?php
 
 class Ramphor_Popcorn {
+	const POST_TYPE = 'video';
+
 	protected static $instance;
 	protected $composer_loaded = false;
 

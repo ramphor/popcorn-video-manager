@@ -35,7 +35,7 @@ class Ramphor_Popcorn_Post_Types {
 		);
 
 		register_post_type(
-			'video',
+			Ramphor_Popcorn::POST_TYPE,
 			apply_filters(
 				'ramphor_video_post_type_args',
 				$video_post_type_args,
@@ -54,7 +54,7 @@ class Ramphor_Popcorn_Post_Types {
 			'public'       => true,
 			'hierarchical' => true,
 		);
-		register_taxonomy( 'video_cat', 'video', apply_filters( 'ramphor_popcorn_video_cat_args', $video_cat_args ) );
+		register_taxonomy( 'video_cat', Ramphor_Popcorn::POST_TYPE, apply_filters( 'ramphor_popcorn_video_cat_args', $video_cat_args ) );
 
 		$tag_labels     = array(
 			'name'        => __( 'Tags', 'ramphor_popcorn' ),
@@ -65,7 +65,7 @@ class Ramphor_Popcorn_Post_Types {
 			'public'       => true,
 			'hierarchical' => false,
 		);
-		register_taxonomy( 'video_tag', 'video', apply_filters( 'ramphor_popcorn_video_tag_args', $video_tag_args ) );
+		register_taxonomy( 'video_tag', Ramphor_Popcorn::POST_TYPE, apply_filters( 'ramphor_popcorn_video_tag_args', $video_tag_args ) );
 	}
 }
 
