@@ -50,9 +50,10 @@ class Ramphor_Popcorn_Post_Types {
 			'plural_name' => __( 'Video Category', 'ramphor_popcorn' ),
 		);
 		$video_cat_args  = array(
-			'lables'       => $category_labels,
-			'public'       => true,
-			'hierarchical' => true,
+			'lables'            => $category_labels,
+			'public'            => true,
+			'hierarchical'      => true,
+			'show_admin_column' => true,
 		);
 		register_taxonomy( 'video_cat', Ramphor_Popcorn::POST_TYPE, apply_filters( 'ramphor_popcorn_video_cat_args', $video_cat_args ) );
 
