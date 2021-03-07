@@ -30,7 +30,7 @@ class Ramphor_Popcorn_Post_Types {
 			'hierarchical'    => true,
 			'show_ui'         => true,
 			'capability_type' => 'post',
-			'show_in_rest'    => true,
+			'show_in_rest'    => false,
 			'supports'        => array( 'title', 'editor', 'comments', 'author', 'excerpt', 'thumbnail' ),
 		);
 
