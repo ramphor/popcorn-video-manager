@@ -11,6 +11,15 @@
     ],
     "minimum-stability": "dev",
     "require": {
-        "jankx/template": "dev-master"
+        "jankx/template": "dev-master",
+        "ramphor/embrati": "dev-master",
+        "ramphor/user-profile": "dev-master",
+        "ramphor/plugin-core": "dev-master",
+        "php-tmdb/api": "^2.1@dev"
+    },
+    "autoload": {
+        "psr-4": {
+            "Ramphor\\Popcorn\\": "includes/Popcorn/"
+        }
     }
 }
