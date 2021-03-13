@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "bed1b3e32a39ad0b1b4e35f274b2d466",
+    "content-hash": "49190a954009aa3a9f8094c5f2dff83e",
     "packages": [
         {
             "name": "hybridauth/hybridauth",
@@ -69,12 +69,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/jankx/helpers.git",
-                "reference": "a6278cc556b936225592f7e10c1d25edcf9723de"
+                "reference": "546ca41950a3d4a8c1bf20b169158c6a987fd350"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jankx/helpers/zipball/a6278cc556b936225592f7e10c1d25edcf9723de",
-                "reference": "a6278cc556b936225592f7e10c1d25edcf9723de",
+                "url": "https://api.github.com/repos/jankx/helpers/zipball/546ca41950a3d4a8c1bf20b169158c6a987fd350",
+                "reference": "546ca41950a3d4a8c1bf20b169158c6a987fd350",
                 "shasum": ""
             },
             "type": "library",
@@ -866,7 +866,7 @@
         },
         {
             "name": "ramphor/guzzle",
-            "version": "dev-master",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ramphor/guzzlehttp.git",
@@ -1020,12 +1020,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/cache.git",
-                "reference": "71863ebbc53ed94cf1bc4e0abbc4f3183b114a44"
+                "reference": "1a42ca3a1d416070745d34626d6129973927cc5f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/cache/zipball/71863ebbc53ed94cf1bc4e0abbc4f3183b114a44",
-                "reference": "71863ebbc53ed94cf1bc4e0abbc4f3183b114a44",
+                "url": "https://api.github.com/repos/symfony/cache/zipball/1a42ca3a1d416070745d34626d6129973927cc5f",
+                "reference": "1a42ca3a1d416070745d34626d6129973927cc5f",
                 "shasum": ""
             },
             "require": {
@@ -1104,7 +1104,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-02-25T23:55:26+00:00"
+            "time": "2021-03-09T08:28:49+00:00"
         },
         {
             "name": "symfony/cache-contracts",
@@ -1707,7 +1707,6 @@
         "ramphor/embrati": 20,
         "ramphor/user-profile": 20,
         "ramphor/plugin-core": 20,
-        "ramphor/guzzle": 20,
         "symfony/event-dispatcher": 20,
         "nyholm/psr7": 20,
         "symfony/cache": 20
