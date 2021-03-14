@@ -17,7 +17,8 @@ class PostType
         register_post_type(static::POST_TYPE_NAME, array(
             'public' => true,
             'labels' => $this->labels(),
-            'supports' => array('title', 'editor', 'thumbnail')
+            'supports' => array('title', 'editor', 'thumbnail'),
+            'show_in_rest' => false,
         ));
     }
 }
