@@ -1,5 +1,7 @@
 <?php
 
+use Ramphor\Popcorn\PlatformManager;
+
 class Ramphor_Popcorn
 {
     protected static $instance;
@@ -16,6 +18,8 @@ class Ramphor_Popcorn
     private function __construct()
     {
         $this->bootstrap();
+        $this->loadFeatures();
+        $this->initHooks();
     }
 
     public function bootstrap()
@@ -30,5 +34,14 @@ class Ramphor_Popcorn
             case 'cron':
                 return defined('DOING_AJAX') && DOING_AJAX;
         }
+    }
+
+    public function loadFeatures()
+    {
+        new PlatformManager();
+    }
+
+    public function initHooks()
+    {
     }
 }
