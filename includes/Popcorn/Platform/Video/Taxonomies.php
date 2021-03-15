@@ -3,13 +3,13 @@ namespace Ramphor\Popcorn\Platform\Video;
 
 class Taxonomies
 {
-    const CAT_TAX = 'video_cat';
+    const CAT_TAX = 'genre';
 
     public function labels()
     {
         return array(
-            'name' => __('Categories', 'ramphor_popcorn'),
-            'plural_name' => __('Categories', 'ramphor_popcorn'),
+            'name' => __('Genres', 'ramphor_popcorn'),
+            'plural_name' => __('Genres', 'ramphor_popcorn'),
         );
     }
 
