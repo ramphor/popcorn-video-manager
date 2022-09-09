@@ -1,5 +1,6 @@
 <?php
 
+use Ramphor\Popcorn\Installer;
 use Ramphor\Popcorn\PlatformManager;
 
 class Ramphor_Popcorn
@@ -43,5 +44,6 @@ class Ramphor_Popcorn
 
     public function initHooks()
     {
+        register_activation_hook(POPCORN_PLUGIN_FILE, [Installer::class, 'active']);
     }
 }
