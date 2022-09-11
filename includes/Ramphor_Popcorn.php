@@ -3,6 +3,7 @@
 use Ramphor\Popcorn\Admin\Admin;
 use Ramphor\Popcorn\Installer;
 use Ramphor\Popcorn\PlatformManager;
+use Ramphor\Popcorn\Video;
 
 class Ramphor_Popcorn
 {
@@ -52,5 +53,7 @@ class Ramphor_Popcorn
     public function initHooks()
     {
         register_activation_hook(POPCORN_PLUGIN_FILE, [Installer::class, 'active']);
+
+        add_action('the_post', [Video::class, 'createFromPost']);
     }
 }
