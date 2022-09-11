@@ -1,10 +1,13 @@
 <?php
 
+use Ramphor\Popcorn\Admin\Admin;
 use Ramphor\Popcorn\Installer;
 use Ramphor\Popcorn\PlatformManager;
 
 class Ramphor_Popcorn
 {
+    const POST_TYPE = 'video';
+
     protected static $instance;
 
     public static function get_instance()
@@ -40,6 +43,10 @@ class Ramphor_Popcorn
     public function loadFeatures()
     {
         new PlatformManager();
+
+        if (is_admin()) {
+            new Admin();
+        }
     }
 
     public function initHooks()

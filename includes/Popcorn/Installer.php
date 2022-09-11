@@ -3,7 +3,8 @@ namespace Ramphor\Popcorn;
 
 class Installer
 {
-    protected static function createVideoTable() {
+    protected static function createVideoTable()
+    {
         /**
          * [$wpdb description]
          *
@@ -23,7 +24,8 @@ class Installer
         return $wpdb->query($sql);
     }
 
-    public static function active() {
+    public static function active()
+    {
         static::createVideoTable();
     }
 }

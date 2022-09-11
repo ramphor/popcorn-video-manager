@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5c43192ded800dedd6147f2770d1955c",
+    "content-hash": "5b43b45d5013559f47946a8bb8f2a9ba",
     "packages": [
         {
             "name": "hybridauth/hybridauth",
@@ -470,6 +470,43 @@
             "time": "2021-03-25T05:12:19+00:00"
         },
         {
+            "name": "ramphor/post-columns",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ramphor/post-columns.git",
+                "reference": "e235bd6d5e3ec8d2ad83f8583ac1b925889b9c39"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ramphor/post-columns/zipball/e235bd6d5e3ec8d2ad83f8583ac1b925889b9c39",
+                "reference": "e235bd6d5e3ec8d2ad83f8583ac1b925889b9c39",
+                "shasum": ""
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Ramphor\\PostColumns\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Puleeno Nguyen",
+                    "email": "puleeno@gmail.com"
+                }
+            ],
+            "support": {
+                "issues": "https://github.com/ramphor/post-columns/issues",
+                "source": "https://github.com/ramphor/post-columns/tree/master"
+            },
+            "time": "2022-09-11T05:23:32+00:00"
+        },
+        {
             "name": "ramphor/user-profile",
             "version": "dev-master",
             "source": {
@@ -520,7 +557,8 @@
         "jankx/template": 20,
         "ramphor/embrati": 20,
         "ramphor/user-profile": 20,
-        "ramphor/plugin-core": 20
+        "ramphor/plugin-core": 20,
+        "ramphor/post-columns": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
