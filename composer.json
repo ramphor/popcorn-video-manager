@@ -2,7 +2,7 @@
     "name": "ramphor/popcorn-video-manager",
     "description": "Create video, movies or film site with the Popcorn WordPress plugin",
     "type": "project",
-    "license": "GPL-2.0-later",
+    "license": "GPL-3.0-or-later",
     "authors": [
         {
             "name": "Ramphor Premium",
