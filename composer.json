@@ -17,7 +17,8 @@
         "ramphor/plugin-core": "dev-master",
         "ramphor/logger": "^1.0",
         "ramphor/guzzle": "1.0.1",
-        "ramphor/post-columns": "dev-master"
+        "ramphor/post-columns": "dev-master",
+        "ramphor/wallery": "^1.6"
     },
     "autoload": {
         "psr-4": {

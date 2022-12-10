@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5b43b45d5013559f47946a8bb8f2a9ba",
+    "content-hash": "cd15ef05b1d4560807a8287c0f0dda0d",
     "packages": [
         {
             "name": "hybridauth/hybridauth",
@@ -548,6 +548,43 @@
                 "source": "https://github.com/ramphor/user-profile/tree/master"
             },
             "time": "2021-05-20T08:09:48+00:00"
+        },
+        {
+            "name": "ramphor/wallery",
+            "version": "1.6.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ramphor/wallery.git",
+                "reference": "6dfa9f65d06c4e25afd4e504866404e163d430cb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ramphor/wallery/zipball/6dfa9f65d06c4e25afd4e504866404e163d430cb",
+                "reference": "6dfa9f65d06c4e25afd4e504866404e163d430cb",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Ramphor\\Wallery\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Puleeno Nguyen",
+                    "email": "puleeno@gmail.com"
+                }
+            ],
+            "description": "WordPress gallery for meta box and frontend post",
+            "support": {
+                "issues": "https://github.com/ramphor/wallery/issues",
+                "source": "https://github.com/ramphor/wallery/tree/1.6.0"
+            },
+            "time": "2021-03-21T14:14:14+00:00"
         }
     ],
     "packages-dev": [],
@@ -564,5 +601,5 @@
     "prefer-lowest": false,
     "platform": [],
     "platform-dev": [],
-    "plugin-api-version": "2.1.0"
+    "plugin-api-version": "2.3.0"
 }
