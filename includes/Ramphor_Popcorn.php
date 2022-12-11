@@ -36,11 +36,11 @@ class Ramphor_Popcorn
 
     public function bootstrap()
     {
-        if ( class_exists( Wallery::class ) ) {
+        if (class_exists(Wallery::class)) {
             $walleryFactory  = new MetaboxFactory('Image Heading Text');
-            $this->walleryInstance = new Wallery( $walleryFactory );
+            $this->walleryInstance = new Wallery($walleryFactory);
 
-            $this->walleryInstance->setId( 'popcorn_video_gallary' );
+            $this->walleryInstance->setId('popcorn_video_gallary');
         }
     }
 
@@ -70,10 +70,10 @@ class Ramphor_Popcorn
         add_action('the_post', [Video::class, 'createFromPost']);
 
         add_action('add_meta_boxes', [$this, 'wallery_register_metabox']);
-
     }
 
-    function wallery_register_metabox() {
+    function wallery_register_metabox()
+    {
         add_meta_box(
             'metabox_id',
             __('Video Gallery', 'ramphor_popcorn'),

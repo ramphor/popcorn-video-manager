@@ -25,15 +25,15 @@ class EditVideoInfo
         ?>
         <p>
             <label for=""><?php echo __('Embed code', 'ramphor_popcorn'); ?></label>
-            <textarea name="" id="ramphor-popcorn-video-embded" class="widefat"></textarea>
+            <textarea name="" id="ramphor-popcorn-video-embded" class="widefat"><?php echo $video->getEmbedCode(); ?></textarea>
         </p>
         <p>
             <label for=""><?php echo __('Preview URL', 'ramphor_popcorn'); ?></label>
-            <input type="text" class="widefat" name="" value="" />
+            <input type="text" class="widefat" name="" value="<?php echo $video->getPreviewVideoUrl(); ?>" />
         </p>
         <p>
             <label for=""><?php echo __('Duration', 'ramphor_popcorn'); ?></label>
-            <input type="text" class="widefat" name="" value="" />
+            <input type="text" class="widefat" name="" value="<?php echo $video->getDuration(); ?>" />
         </p>
         <?php
     }
