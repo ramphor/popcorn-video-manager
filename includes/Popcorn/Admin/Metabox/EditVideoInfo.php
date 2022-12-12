@@ -40,7 +40,7 @@ class EditVideoInfo
         <?php
     }
 
-    public function saveInfo($post)
+    public function saveInfo($postID, $post)
     {
         if ($post->post_type !== Ramphor_Popcorn::POST_TYPE) {
             return;
@@ -52,9 +52,9 @@ class EditVideoInfo
         ];
         foreach($videoMetaKeys as $metaKey) {
             if (empty($_POST[$metaKey])) {
-                delete_post_meta($post->ID, $metaKey);
+                delete_post_meta($postID, $metaKey);
             } else {
-                update_post_meta($metaKey, $metaKey, $_POST[$metaKey]);
+                update_post_meta($postID, $metaKey, $_POST[$metaKey]);
             }
         }
     }

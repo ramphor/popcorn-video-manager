@@ -60,6 +60,6 @@ class Admin
         $postColumnManager->addColumn($thumbnailColumn);
 
         add_action('add_meta_boxes', [$this, 'registerMetaboxes']);
-        add_action('save_post', [$this->editVideoInfoMetabox, 'saveInfo']);
+        add_action('save_post', [$this->editVideoInfoMetabox, 'saveInfo'], 10, 2);
     }
 }
