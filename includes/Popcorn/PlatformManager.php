@@ -1,8 +1,8 @@
 <?php
 namespace Ramphor\Popcorn;
 
-use Ramphor\Popcorn\Platform\Video;
 use Ramphor\Popcorn\Platform\Tag;
+use Ramphor\Popcorn\Platform\VideoPlatform;
 
 class PlatformManager
 {
@@ -14,7 +14,7 @@ class PlatformManager
 
     public function setupVideoPlatform()
     {
-        Video::getInstance();
+        VideoPlatform::getInstance();
     }
 
     public function registerPopcornTag()

@@ -1,7 +1,9 @@
 <?php
 namespace Ramphor\Popcorn\Platform;
 
-class Video
+use Ramphor\Popcorn\Abstracts\PlatformAbstract;
+
+class VideoPlatform extends PlatformAbstract
 {
     protected static $instance;
 
