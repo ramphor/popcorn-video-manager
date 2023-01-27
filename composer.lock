@@ -105,7 +105,7 @@
             "description": "The helpers for Jankx Framework",
             "support": {
                 "issues": "https://github.com/jankx/helpers/issues",
-                "source": "https://github.com/jankx/helpers/tree/master"
+                "source": "https://github.com/jankx/helpers/tree/1.0.0"
             },
             "time": "2022-01-30T16:41:56+00:00"
         },
@@ -179,12 +179,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/jankx/template.git",
-                "reference": "13972af86a8941d7459141aaef5159799f01103d"
+                "reference": "000a9fd38ca8d209b3e378a5968ffe40de196270"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jankx/template/zipball/13972af86a8941d7459141aaef5159799f01103d",
-                "reference": "13972af86a8941d7459141aaef5159799f01103d",
+                "url": "https://api.github.com/repos/jankx/template/zipball/000a9fd38ca8d209b3e378a5968ffe40de196270",
+                "reference": "000a9fd38ca8d209b3e378a5968ffe40de196270",
                 "shasum": ""
             },
             "require": {
@@ -212,7 +212,7 @@
                 "issues": "https://github.com/jankx/template/issues",
                 "source": "https://github.com/jankx/template/tree/master"
             },
-            "time": "2022-08-20T09:57:09+00:00"
+            "time": "2023-01-18T06:23:49+00:00"
         },
         {
             "name": "jankx/template-engine",
@@ -220,12 +220,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/jankx/template-engine.git",
-                "reference": "2f15e0cb42ae97eb94339734ff9f2ae151fc5f80"
+                "reference": "a38978dbf3f15be7773b700bd625ab0fbe6ba059"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jankx/template-engine/zipball/2f15e0cb42ae97eb94339734ff9f2ae151fc5f80",
-                "reference": "2f15e0cb42ae97eb94339734ff9f2ae151fc5f80",
+                "url": "https://api.github.com/repos/jankx/template-engine/zipball/a38978dbf3f15be7773b700bd625ab0fbe6ba059",
+                "reference": "a38978dbf3f15be7773b700bd625ab0fbe6ba059",
                 "shasum": ""
             },
             "require": {
@@ -254,7 +254,7 @@
                 "issues": "https://github.com/jankx/template-engine/issues",
                 "source": "https://github.com/jankx/template-engine/tree/master"
             },
-            "time": "2021-08-19T14:17:34+00:00"
+            "time": "2022-12-30T07:04:47+00:00"
         },
         {
             "name": "psr/log",
@@ -551,16 +551,16 @@
         },
         {
             "name": "ramphor/wallery",
-            "version": "1.6.0",
+            "version": "1.6.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ramphor/wallery.git",
-                "reference": "6dfa9f65d06c4e25afd4e504866404e163d430cb"
+                "reference": "0fb18f9173c5c600855a4cce4f08acb4df62dfb5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ramphor/wallery/zipball/6dfa9f65d06c4e25afd4e504866404e163d430cb",
-                "reference": "6dfa9f65d06c4e25afd4e504866404e163d430cb",
+                "url": "https://api.github.com/repos/ramphor/wallery/zipball/0fb18f9173c5c600855a4cce4f08acb4df62dfb5",
+                "reference": "0fb18f9173c5c600855a4cce4f08acb4df62dfb5",
                 "shasum": ""
             },
             "type": "library",
@@ -582,9 +582,9 @@
             "description": "WordPress gallery for meta box and frontend post",
             "support": {
                 "issues": "https://github.com/ramphor/wallery/issues",
-                "source": "https://github.com/ramphor/wallery/tree/1.6.0"
+                "source": "https://github.com/ramphor/wallery/tree/1.6.1"
             },
-            "time": "2021-03-21T14:14:14+00:00"
+            "time": "2023-01-27T04:19:17+00:00"
         }
     ],
     "packages-dev": [],
