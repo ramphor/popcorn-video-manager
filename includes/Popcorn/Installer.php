@@ -24,8 +24,31 @@ class Installer
         return $wpdb->query($sql);
     }
 
+    protected static function createRatingTable()
+    {
+        /**
+         * [$wpdb description]
+         *
+         * @var \wpdb
+         */
+        global $wpdb;
+        $sql = "CREATE TABLE IF NOT EXISTS `{$wpdb->prefix}popcorn_ratings` (
+            `id` BIGINT NOT NULL AUTO_INCREMENT,
+            `post_id` BIGINT NOT NULL,
+            `stars` FLOAT NOT NULL DEFAULT 0,
+            `user_id` BIGINT NOT NULL DEFAULT 0,
+            `comment` TEXT,
+            `user_ip` TEXT NOT NULL,
+            `created_at` DATETIME DEFAULT NOW(),
+            PRIMARY KEY (`id`)
+        )";
+
+        return $wpdb->query($sql);
+    }
+
     public static function active()
     {
         static::createVideoTable();
+        static::createRatingTable();
     }
 }

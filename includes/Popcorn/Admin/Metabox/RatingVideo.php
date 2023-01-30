@@ -39,12 +39,13 @@ class RatingVideo
     public function renderRating($post)
     {
         echo '<div class="ramphor_popcorn-loading"></div>'; // wpcs: XSS Ok
-        $rating = floatval(get_post_meta($post->ID, Ramphor_Popcorn::POST_META_STAR_RATING, true));
-        $this->embrati->create('ramphor_popcorn-rating', array(
-            'max' => 5,
-            'rating' => $rating,
+        $rating = 0;
+        $options = apply_filters('ramphor_popcorn-rating-options', array(
+            'max' => 5,            
             'step' => 0.5,
-            'starSize' => 32
+            'rating' => $rating,
+            'starSize' => 20
         ));
+        $this->embrati->create('ramphor_popcorn-rating', $options);
     }
 }
