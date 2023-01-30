@@ -2,6 +2,7 @@
 namespace Ramphor\Popcorn\Admin;
 
 use Ramphor\Popcorn\Admin\Metabox\EditVideoInfo;
+use Ramphor\Popcorn\Admin\Metabox\RatingVideo;
 use Ramphor\PostColumns\Columns\ThumbnailColumn;
 use Ramphor\PostColumns\ColumnsManager;
 use Ramphor_Popcorn;
@@ -9,6 +10,7 @@ use Ramphor_Popcorn;
 class Admin
 {
     protected $editVideoInfoMetabox;
+    protected $ratingVideoMetabox;
 
     public function __construct()
     {
@@ -19,6 +21,7 @@ class Admin
     protected function bootstrap()
     {
         $this->editVideoInfoMetabox = EditVideoInfo::getInstance();
+        $this->ratingVideoMetabox = RatingVideo::getInstance();
     }
 
     protected function initHooks()
@@ -60,6 +63,7 @@ class Admin
         $postColumnManager->addColumn($thumbnailColumn);
 
         add_action('add_meta_boxes', [$this, 'registerMetaboxes']);
+        add_action('add_meta_boxes', [$this->ratingVideoMetabox, 'registerMetabox']);
         add_action('save_post', [$this->editVideoInfoMetabox, 'saveInfo'], 10, 2);
     }
 }
