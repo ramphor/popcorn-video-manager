@@ -25,7 +25,9 @@
             "Ramphor\\Popcorn\\": "includes/Popcorn/"
         },
         "files": [
-            "./includes/Ramphor_Popcorn.php"
+            "./includes/Ramphor_Popcorn.php",
+            "./includes/AjaxRequest.php",
+            "./includes/helpers.php"
         ]
     }
 }
