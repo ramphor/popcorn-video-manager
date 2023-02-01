@@ -1,4 +1,6 @@
 <?php 
+namespace Ramphor\Popcorn\Rating;
+
 class AjaxRequest{
     public function init(){
         add_action('wp_ajax_ramphor_set_rate', array($this, 'setRating'));

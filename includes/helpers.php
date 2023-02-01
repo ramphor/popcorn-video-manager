@@ -18,3 +18,20 @@ function get_real_ip_address()
     }
     return '127.0.0.1';
 }
+
+function assetUrl($path = '')
+{
+    $abspath = constant('ABSPATH');
+    $embratiAbspath = dirname(__DIR__);
+    if (PHP_OS === 'WINNT') {
+        $abspath = str_replace('\\', '/', $abspath);
+        $embratiAbspath = str_replace('\\', '/', $embratiAbspath);
+    }
+    $assetUrl = str_replace($abspath, site_url('/'), $embratiAbspath);
+
+    return sprintf(
+        '%s/assets/%s',
+        $assetUrl,
+        $path
+    );
+}
