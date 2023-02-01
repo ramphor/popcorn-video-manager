@@ -5,18 +5,16 @@ use Ramphor\Popcorn\Admin\Metabox\EditVideoInfo;
 use Ramphor\Popcorn\Admin\Metabox\RatingVideo;
 use Ramphor\PostColumns\Columns\ThumbnailColumn;
 use Ramphor\PostColumns\ColumnsManager;
-use Embrati\Embrati;
+use Ramphor\Popcorn\Rating\Rating;
 
 use Ramphor_Popcorn;
-use AjaxRequest;
 
 class Admin
 {
     protected $editVideoInfoMetabox;
     protected $ratingVideoMetabox;
-    protected $embrati;
     protected static $assetUrl;
-    public $ajax;
+    protected $rating;
 
     public function __construct()
     {
@@ -28,6 +26,7 @@ class Admin
     {
         $this->editVideoInfoMetabox = EditVideoInfo::getInstance();
         $this->ratingVideoMetabox = RatingVideo::getInstance();
+        $this->rating = Rating::getInstance();
     }
 
     protected function initHooks()
