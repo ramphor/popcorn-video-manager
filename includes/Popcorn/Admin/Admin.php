@@ -4,11 +4,13 @@ namespace Ramphor\Popcorn\Admin;
 use Ramphor\Popcorn\Admin\Metabox\EditVideoInfo;
 use Ramphor\PostColumns\Columns\ThumbnailColumn;
 use Ramphor\PostColumns\ColumnsManager;
+
 use Ramphor_Popcorn;
 
 class Admin
 {
     protected $editVideoInfoMetabox;
+    protected $ratingVideoMetabox;
 
     public function __construct()
     {

@@ -10,6 +10,7 @@ use Ramphor\Wallery\Wallery;
 class Ramphor_Popcorn
 {
     const POST_TYPE = 'video';
+    const POST_META_STAR_RATING = '_ramphor_rating';
 
     protected static $instance;
 
