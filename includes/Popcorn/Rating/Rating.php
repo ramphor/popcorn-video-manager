@@ -52,16 +52,13 @@ class Rating
         }else{
             $this->embrati->registerScripts();     
         }
-        add_action('wp_enqueue_scripts', array($this->embrati, 'registerStyles'));        
+        $this->embrati->setJsRateCallback('ramphor_set_star_rating');        
+        add_action('wp_enqueue_scripts', array($this->embrati, 'registerStyles'));  
     }
    
     public function registerScripts()
     {
         add_action('wp_enqueue_scripts', array($this, '_registerScripts'));
-        $this->embrati->setJsRateCallback('ramphor_set_star_rating');
-
-        $this->ajax     = new \Ramphor\Popcorn\Rating\AjaxRequest();
-        add_action('init', array($this->ajax, 'init'));
     }
 
     public function _registerScripts(){

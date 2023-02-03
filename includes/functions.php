@@ -32,6 +32,11 @@ function register_rating_js()
     }
 }
 
+function register_rating_ajax(){
+    $ajax     = new \Ramphor\Popcorn\Rating\AjaxRequest();
+    add_action('init', array($ajax, 'init'));
+}
+
 function get_rating_meta($post_id, $meta_key = '')
 {
     if (class_exists(Rating::class)) {
