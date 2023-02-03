@@ -28,7 +28,7 @@ class AjaxRequest{
 
         global $wpdb;
         $user_id = empty(get_current_user_id()) ? 0 : get_current_user_id(); 
-        $user_ip = get_real_ip_address();
+        $user_ip = $this->get_real_ip_address();
         
         $data = array( 'post_id' => "{$requestPayload['post_id']}", 'stars' => "{$requestPayload['rating']}", 'user_id' => "{$user_id}", 'comment' => '111', 'user_ip' => "{$user_ip}" );
 
@@ -46,5 +46,24 @@ class AjaxRequest{
             }
         }
         wp_send_json_success($requestPayload['rating']);
+    }
+
+    private function get_real_ip_address(){
+        $ip_headers = array(
+            'HTTP_CF_IPCOUNTRY',
+            'HTTP_CLIENT_IP',
+            'HTTP_X_FORWARDED_FOR',
+            'HTTP_X_FORWARDED',
+            'HTTP_FORWARDED_FOR',
+            'HTTP_FORWARDED',
+            'REMOTE_ADDR'
+        );
+    
+        foreach ($ip_headers as $ip_header) {
+            if (!empty($_SERVER[$ip_header])) {
+                return $_SERVER[$ip_header];
+            }
+        }
+        return '127.0.0.1';
     }
 }

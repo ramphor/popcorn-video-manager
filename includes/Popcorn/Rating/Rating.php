@@ -14,10 +14,7 @@ class Rating
 
     private function __construct()
     {
-        $this->bootstrap();
-        // $this->initHooks();
         $this->initFeatures();
-
         $this->options     = $this->defaultOptions();
     }
 
@@ -30,37 +27,46 @@ class Rating
         return self::$instance;
     }
 
-    protected function bootstrap()
+    private function assetUrl($path = '')
     {
-      
+        $abspath = constant('ABSPATH');
+        $embratiAbspath = dirname(__DIR__,3);
+        if (PHP_OS === 'WINNT') {
+            $abspath = str_replace('\\', '/', $abspath);
+            $embratiAbspath = str_replace('\\', '/', $embratiAbspath);
+        }
+        $assetUrl = str_replace($abspath, site_url('/'), $embratiAbspath);
+    
+        return sprintf(
+            '%s/assets/%s',
+            $assetUrl,
+            $path
+        );
     }
 
     protected function initFeatures()
     {
-
         $this->embrati  = Embrati::getInstance();       
-
-        add_action('wp_enqueue_scripts', array($this->embrati, 'registerStyles'));
-
-        add_action('embrati_registered_scripts', array($this, 'registerScripts'));
-        add_filter('embrati_enqueue_script', array($this, 'changeEnqueueSCript'));
-
-        $this->embrati->setJsRateCallback('ramphor_set_star_rating');
-
-        $this->ajax     = new \Ramphor\Popcorn\Rating\AjaxRequest();
-        
-        add_action('init', array($this->ajax, 'init'));
+        if(is_admin()){
+            $this->embrati->registerAdminScripts();     
+        }else{
+            $this->embrati->registerScripts();     
+        }
+        add_action('wp_enqueue_scripts', array($this->embrati, 'registerStyles'));        
     }
    
     public function registerScripts()
     {
-        wp_register_script(
-            'ramphor-ratings',
-            assetUrl('js/ramphor-rating.js'),
-            array('embrati'),
-            '1.0.0',
-            true
-        );
+        add_action('wp_enqueue_scripts', array($this, '_registerScripts'));
+        $this->embrati->setJsRateCallback('ramphor_set_star_rating');
+
+        $this->ajax     = new \Ramphor\Popcorn\Rating\AjaxRequest();
+        add_action('init', array($this->ajax, 'init'));
+    }
+
+    public function _registerScripts(){
+        wp_register_script('ramphor-ratings', $this->assetUrl('js/ramphor-rating.js'), null, '1.0.0', true);
+        wp_enqueue_script('ramphor-ratings');
 
         $globalData = array(
             'set_rate_url' => admin_url('admin-ajax.php?action=ramphor_set_rate'),
@@ -79,11 +85,6 @@ class Rating
         $globalData['post_id'] = $post->ID;
 
         wp_localize_script('ramphor-ratings', 'ramphor_rating_global', $globalData);
-    }
-
-    public function changeEnqueueSCript()
-    {
-        return 'ramphor-ratings';
     }
 
     public function defaultOptions()
@@ -118,10 +119,34 @@ class Rating
         return isset($this->options[$key]) ? $this->options[$key] : null;
     }
 
-    public function renderRating($post)
+    public function render($echo = true)
     {
-       echo '<div class="ramphor_popcorn-loading"></div>'; // wpcs: XSS Ok
+        if (!$echo) {
+            ob_start();
+        }
+        echo '<div class="ramphor_popcorn-loading"></div>'; // wpcs: XSS Ok
 
-       $this->embrati->create('ramphor_popcorn-rating', $this->options);
+        $this->embrati->create('ramphor_popcorn_rating', $this->options);
+
+        if (!$echo) {
+            return ob_get_clean();
+        }
     }
+
+    public function meta($post_id, $meta_key = ''){
+        $data['max'] = 5;
+        if(isset($this->options['max'])) $data['max'] = $this->options['max'];
+        global $wpdb;
+        $result = $wpdb->get_row("SELECT *, SUM(stars) as sum_star, AVG(stars) as avg_star, count(id) as count_id FROM {$wpdb->prefix}popcorn_ratings WHERE post_id = '{$post_id}' GROUP BY post_id");
+       
+        if(!is_null($result)){
+            foreach($result as $key => $value){
+                $data[$key] = $value;
+                if('avg_star' === $key) $data[$key] = floatval($value);
+                if($key === $meta_key) break;
+            }
+        }
+        if($meta_key) return isset($data[$meta_key]) ? $data[$meta_key] : NULL;
+        return $data;
+    }   
 }
