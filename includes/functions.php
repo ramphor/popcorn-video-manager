@@ -2,19 +2,19 @@
 
 use Ramphor\Popcorn\Rating\Rating;
 
-function show_rating($post = '',$options = [])
+function show_rating($post = '', $options = [])
 {
-    if(empty($post)) global $post;
+    if (empty($post)) global $post;
     if (class_exists(Rating::class)) {
         $rating = Rating::getInstance();
-        
+
         $_options = $rating->defaultOptions();
         $_options['readOnly'] = true;
 
         $avg_star = $rating->meta($post->ID, 'avg_star');
-        
-        if(!is_null($avg_star)) $_options['rating'] = $avg_star;
-        
+
+        if (!is_null($avg_star)) $_options['rating'] = $avg_star;
+
         $options = $options + $_options;
 
         $rating->setOptions($options);
@@ -32,7 +32,8 @@ function register_rating_js()
     }
 }
 
-function register_rating_ajax(){
+function register_rating_ajax()
+{
     $ajax     = new \Ramphor\Popcorn\Rating\AjaxRequest();
     add_action('init', array($ajax, 'init'));
 }

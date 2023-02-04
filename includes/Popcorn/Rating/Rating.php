@@ -1,4 +1,5 @@
 <?php
+
 namespace Ramphor\Popcorn\Rating;
 
 use Embrati\Embrati;
@@ -10,7 +11,7 @@ class Rating
     protected static $instance;
     protected $embrati;
     protected $options;
-    protected $ajax;    
+    protected $ajax;
 
     private function __construct()
     {
@@ -30,13 +31,13 @@ class Rating
     private function assetUrl($path = '')
     {
         $abspath = constant('ABSPATH');
-        $embratiAbspath = dirname(__DIR__,3);
+        $embratiAbspath = dirname(__DIR__, 3);
         if (PHP_OS === 'WINNT') {
             $abspath = str_replace('\\', '/', $abspath);
             $embratiAbspath = str_replace('\\', '/', $embratiAbspath);
         }
         $assetUrl = str_replace($abspath, site_url('/'), $embratiAbspath);
-    
+
         return sprintf(
             '%s/assets/%s',
             $assetUrl,
@@ -46,22 +47,23 @@ class Rating
 
     protected function initFeatures()
     {
-        $this->embrati  = Embrati::getInstance();       
-        if(is_admin()){
-            $this->embrati->registerAdminScripts();     
-        }else{
-            $this->embrati->registerScripts();     
+        $this->embrati  = Embrati::getInstance();
+        if (is_admin()) {
+            $this->embrati->registerAdminScripts();
+        } else {
+            $this->embrati->registerScripts();
         }
-        $this->embrati->setJsRateCallback('ramphor_set_star_rating');        
-        add_action('wp_enqueue_scripts', array($this->embrati, 'registerStyles'));  
+        $this->embrati->setJsRateCallback('ramphor_set_star_rating');
+        add_action('wp_enqueue_scripts', array($this->embrati, 'registerStyles'));
     }
-   
+
     public function registerScripts()
     {
         add_action('wp_enqueue_scripts', array($this, '_registerScripts'));
     }
 
-    public function _registerScripts(){
+    public function _registerScripts()
+    {
         wp_register_script('ramphor-ratings', $this->assetUrl('js/ramphor-rating.js'), null, '1.0.0', true);
         wp_enqueue_script('ramphor-ratings');
 
@@ -69,12 +71,12 @@ class Rating
             'set_rate_url' => admin_url('admin-ajax.php?action=ramphor_set_rate'),
         );
 
-        if(is_admin()){
+        if (is_admin()) {
             $current_screen = get_current_screen();
             if ($current_screen->id === Ramphor_Popcorn::POST_TYPE) {
-                global $post;         
+                global $post;
             }
-        }else if(is_singular(Ramphor_Popcorn::POST_TYPE)){
+        } else if (is_singular(Ramphor_Popcorn::POST_TYPE)) {
             global $post;
         }
 
@@ -87,7 +89,7 @@ class Rating
     public function defaultOptions()
     {
         return array(
-            'max' => 5,            
+            'max' => 5,
             'step' => 0.5,
             'starSize' => 20,
             'rating' => 0
@@ -130,20 +132,21 @@ class Rating
         }
     }
 
-    public function meta($post_id, $meta_key = ''){
+    public function meta($post_id, $meta_key = '')
+    {
         $data['max'] = 5;
-        if(isset($this->options['max'])) $data['max'] = $this->options['max'];
+        if (isset($this->options['max'])) $data['max'] = $this->options['max'];
         global $wpdb;
         $result = $wpdb->get_row("SELECT *, SUM(stars) as sum_star, AVG(stars) as avg_star, count(id) as count_id FROM {$wpdb->prefix}popcorn_ratings WHERE post_id = '{$post_id}' GROUP BY post_id");
-       
-        if(!is_null($result)){
-            foreach($result as $key => $value){
+
+        if (!is_null($result)) {
+            foreach ($result as $key => $value) {
                 $data[$key] = $value;
-                if('avg_star' === $key) $data[$key] = floatval($value);
-                if($key === $meta_key) break;
+                if ('avg_star' === $key) $data[$key] = floatval($value);
+                if ($key === $meta_key) break;
             }
         }
-        if($meta_key) return isset($data[$meta_key]) ? $data[$meta_key] : NULL;
+        if ($meta_key) return isset($data[$meta_key]) ? $data[$meta_key] : NULL;
         return $data;
-    }   
+    }
 }
